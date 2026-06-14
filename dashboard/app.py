@@ -447,7 +447,6 @@ def main():
     # ============================================
     st.markdown('<h2 class="section-header">📊 Chart 1: Fraud Intelligence Distribution</h2>', unsafe_allow_html=True)
     
-    # Handle missing values
     fraud_counts = filtered_df['is_fraud'].value_counts()
     fraud_count = fraud_counts.get(True, 0)
     non_fraud_count = fraud_counts.get(False, 0)
@@ -633,12 +632,7 @@ def main():
             'fraud_score': '⚠️ Risk Score'
         }),
         use_container_width=True,
-        hide_index=True,
-        column_config={
-            "💰 Amount (₹)": st.column_config.NumberColumnConfig("Amount", format="₹{value:.0f}", width=120),
-            "⚠️ Risk Score": st.column_config.NumberColumnConfig("Score", format="{value:.2f}", width=100),
-            "🚨 Type": st.column_config.TextColumnConfig("Type", width=150)
-        }
+        hide_index=True
     )
     
     # CHART 8: Box Plot
@@ -834,12 +828,7 @@ def main():
             'fraud_score': '⚠️ Score'
         }),
         use_container_width=True,
-        hide_index=True,
-        column_config={
-            "💰 Amount": st.column_config.NumberColumnConfig("Amount", format="₹{value:.0f}", width=120),
-            "⚠️ Score": st.column_config.NumberColumnConfig("Score", format="{value:.2f}", width=100),
-            "🕐 Time": st.column_config.DatetimeColumnConfig("Time", width=180)
-        }
+        hide_index=True
     )
     
     # EXPORT DATA
