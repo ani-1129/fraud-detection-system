@@ -656,7 +656,7 @@ def main():
     )
     st.plotly_chart(fig_box, use_container_width=True)
     
-    # CHART 9: Area Chart
+    # CHART 9: Area Chart  ← FIXED: Remove fill from px.area()
     st.markdown('<h2 class="section-header">📊 Chart 9: Transaction Velocity Trend</h2>', unsafe_allow_html=True)
     
     velocity = filtered_df.groupby('transaction_date').size().reset_index(name='count')
@@ -665,11 +665,9 @@ def main():
         velocity,
         x='transaction_date',
         y='count',
-        title='Daily Transaction Velocity',
-        color='#6366F1',
-        fill='tozeroy'
+        title='Daily Transaction Velocity'
     )
-    fig_area.update_traces(line=dict(width=4, color='#6366F1'))
+    fig_area.update_traces(line=dict(width=4, color='#6366F1'), fill='tozeroy')
     fig_area.update_layout(
         paper_bgcolor='rgba(26, 32, 48, 0.6)',
         plot_bgcolor='rgba(26, 32, 48, 0)',
