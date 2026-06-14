@@ -461,7 +461,6 @@ def main():
         title='Fraud vs Non-Fraud Transactions',
         color_discrete_sequence=['#FF4757', '#2ED573'],
         hole=0.4,
-        pull=[0.1, 0]
     )
     fig_pie.update_traces(
         textposition='auto',
