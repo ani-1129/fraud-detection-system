@@ -449,6 +449,8 @@ def main():
     st.markdown('<h2 class="section-header">📊 Chart 1: Fraud Intelligence Distribution</h2>', unsafe_allow_html=True)
     
     fraud_counts = filtered_df['is_fraud'].value_counts()
+    fraud_count = fraud_counts.get(True, 0)
+    non_fraud_count = fraud_counts.get(False, 0)
     pie_data = pd.DataFrame({
         'Category': ['Fraud Detected', ' legit Transactions'],
         'Count': [fraud_counts[True], fraud_counts[False]]
