@@ -7,6 +7,18 @@
 ![Plotly](https://img.shields.io/badge/Plotly-5.23+-cyan.svg)
 ![Pandas](https://img.shields.io/badge/Pandas-2.0+-green.svg)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Demo](https://img.shields.io/badge/Demo-Available-blue.svg)
+
+---
+
+## 🎯 **Live Demo**
+
+### **🚀 Try the Dashboard Online:**
+[![Open in Streamlit](https://img.shields.io/badge/Open-in-Streamlit-blue.svg)](https://fraud-detection-system-by-aniket-singh.streamlit.app/)
+
+**🔗 Demo Link:** https://fraud-detection-system-by-aniket-singh.streamlit.app/
+
+> Click the link above to access the live dashboard with real-time fraud intelligence!
 
 ---
 
@@ -19,6 +31,7 @@
 - [Installation](#installation)
 - [Usage](#usage)
 - [Project Structure](#project-structure)
+- [Demo](#demo)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
@@ -144,7 +157,11 @@ pip install -r requirements.txt
 
 ## 🚀 Usage
 
-### **Run the Dashboard**
+### **Alternative: Try the Demo First**
+👉 **No installation needed!** Access the live dashboard at:
+[https://fraud-detection-system-by-aniket-singh.streamlit.app/](https://fraud-detection-system-by-aniket-singh.streamlit.app/)
+
+### **Run the Dashboard Locally**
 ```bash
 streamlit run dashboard/app.py
 ```
