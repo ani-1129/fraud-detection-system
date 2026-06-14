@@ -528,7 +528,7 @@ def main():
         y='is_fraud',
         title='Daily Fraud Transaction Trend',
         markers=True,
-        line_shape='smooth'
+        line_shape='spline'
     )
     fig_line.update_traces(
         line=dict(color='#FF4757', width=4),
