@@ -251,7 +251,6 @@ st.markdown("""
 # ============================================
 def get_database_connection():
     """Connect to PostgreSQL database"""
-    # Using sample data for Streamlit Cloud demo
     return None
 
 
@@ -448,12 +447,14 @@ def main():
     # ============================================
     st.markdown('<h2 class="section-header">📊 Chart 1: Fraud Intelligence Distribution</h2>', unsafe_allow_html=True)
     
+    # Handle missing values
     fraud_counts = filtered_df['is_fraud'].value_counts()
     fraud_count = fraud_counts.get(True, 0)
     non_fraud_count = fraud_counts.get(False, 0)
+    
     pie_data = pd.DataFrame({
-        'Category': ['Fraud Detected', ' legit Transactions'],
-        'Count': [fraud_counts[True], fraud_counts[False]]
+        'Category': ['Fraud Detected', 'Legit Transactions'],
+        'Count': [fraud_count, non_fraud_count]
     })
     
     fig_pie = px.pie(
@@ -462,7 +463,7 @@ def main():
         names='Category',
         title='Fraud vs Non-Fraud Transactions',
         color_discrete_sequence=['#FF4757', '#2ED573'],
-        hole=0.4,
+        hole=0.4
     )
     fig_pie.update_traces(
         textposition='auto',
@@ -470,8 +471,7 @@ def main():
         marker=dict(line=dict(color='#000000', width=2))
     )
     fig_pie.update_layout(
-        backgroundcolor='rgba(26, 32, 48, 0.6)',
-        paper_bgcolor='rgba(26, 32, 48, 0)',
+        paper_bgcolor='rgba(26, 32, 48, 0.6)',
         plot_bgcolor='rgba(26, 32, 48, 0)',
         font=dict(color='#FFFFFF'),
         showlegend=True,
@@ -504,8 +504,7 @@ def main():
         marker=dict(line=dict(color='#000000', width=1.5))
     )
     fig_bar.update_layout(
-        backgroundcolor='rgba(26, 32, 48, 0.6)',
-        paper_bgcolor='rgba(26, 32, 48, 0)',
+        paper_bgcolor='rgba(26, 32, 48, 0.6)',
         plot_bgcolor='rgba(26, 32, 48, 0)',
         font=dict(color='#FFFFFF'),
         xaxis=dict(gridcolor='rgba(99, 102, 241, 0.2)'),
@@ -536,8 +535,7 @@ def main():
         marker=dict(size=10, color='#FFFFFF', line=dict(color='#FF4757', width=2))
     )
     fig_line.update_layout(
-        backgroundcolor='rgba(26, 32, 48, 0.6)',
-        paper_bgcolor='rgba(26, 32, 48, 0)',
+        paper_bgcolor='rgba(26, 32, 48, 0.6)',
         plot_bgcolor='rgba(26, 32, 48, 0)',
         font=dict(color='#FFFFFF'),
         xaxis=dict(gridcolor='rgba(99, 102, 241, 0.2)'),
@@ -560,8 +558,7 @@ def main():
     )
     fig_hist.update_traces(opacity=0.7, marker_line_color='#000000', marker_line_width=1)
     fig_hist.update_layout(
-        backgroundcolor='rgba(26, 32, 48, 0.6)',
-        paper_bgcolor='rgba(26, 32, 48, 0)',
+        paper_bgcolor='rgba(26, 32, 48, 0.6)',
         plot_bgcolor='rgba(26, 32, 48, 0)',
         font=dict(color='#FFFFFF'),
         xaxis=dict(gridcolor='rgba(99, 102, 241, 0.2)'),
@@ -584,8 +581,7 @@ def main():
         aspect='auto'
     )
     fig_heatmap.update_layout(
-        backgroundcolor='rgba(26, 32, 48, 0.6)',
-        paper_bgcolor='rgba(26, 32, 48, 0)',
+        paper_bgcolor='rgba(26, 32, 48, 0.6)',
         plot_bgcolor='rgba(26, 32, 48, 0)',
         font=dict(color='#FFFFFF'),
         xaxis=dict(gridcolor='rgba(99, 102, 241, 0.2)'),
@@ -611,8 +607,7 @@ def main():
         marker=dict(size=10, opacity=0.7, line=dict(color='#000000', width=1))
     )
     fig_scatter.update_layout(
-        backgroundcolor='rgba(26, 32, 48, 0.6)',
-        paper_bgcolor='rgba(26, 32, 48, 0)',
+        paper_bgcolor='rgba(26, 32, 48, 0.6)',
         plot_bgcolor='rgba(26, 32, 48, 0)',
         font=dict(color='#FFFFFF'),
         xaxis=dict(gridcolor='rgba(99, 102, 241, 0.2)'),
@@ -659,8 +654,7 @@ def main():
         hover_data=['amount']
     )
     fig_box.update_layout(
-        backgroundcolor='rgba(26, 32, 48, 0.6)',
-        paper_bgcolor='rgba(26, 32, 48, 0)',
+        paper_bgcolor='rgba(26, 32, 48, 0.6)',
         plot_bgcolor='rgba(26, 32, 48, 0)',
         font=dict(color='#FFFFFF'),
         xaxis=dict(gridcolor='rgba(99, 102, 241, 0.2)'),
@@ -683,8 +677,7 @@ def main():
     )
     fig_area.update_traces(line=dict(width=4, color='#6366F1'))
     fig_area.update_layout(
-        backgroundcolor='rgba(26, 32, 48, 0.6)',
-        paper_bgcolor='rgba(26, 32, 48, 0)',
+        paper_bgcolor='rgba(26, 32, 48, 0.6)',
         plot_bgcolor='rgba(26, 32, 48, 0)',
         font=dict(color='#FFFFFF'),
         xaxis=dict(gridcolor='rgba(99, 102, 241, 0.2)'),
@@ -706,8 +699,7 @@ def main():
         hover_data=['count']
     )
     fig_funnel.update_layout(
-        backgroundcolor='rgba(26, 32, 48, 0.6)',
-        paper_bgcolor='rgba(26, 32, 48, 0)',
+        paper_bgcolor='rgba(26, 32, 48, 0.6)',
         plot_bgcolor='rgba(26, 32, 48, 0)',
         font=dict(color='#FFFFFF')
     )
@@ -736,8 +728,7 @@ def main():
         marker=dict(line=dict(color='#000000', width=2))
     )
     fig_device_pie.update_layout(
-        backgroundcolor='rgba(26, 32, 48, 0.6)',
-        paper_bgcolor='rgba(26, 32, 48, 0)',
+        paper_bgcolor='rgba(26, 32, 48, 0.6)',
         plot_bgcolor='rgba(26, 32, 48, 0)',
         font=dict(color='#FFFFFF')
     )
@@ -765,8 +756,7 @@ def main():
         textposition='auto'
     )
     fig_channel_bar.update_layout(
-        backgroundcolor='rgba(26, 32, 48, 0.6)',
-        paper_bgcolor='rgba(26, 32, 48, 0)',
+        paper_bgcolor='rgba(26, 32, 48, 0.6)',
         plot_bgcolor='rgba(26, 32, 48, 0)',
         font=dict(color='#FFFFFF'),
         xaxis=dict(gridcolor='rgba(99, 102, 241, 0.2)'),
@@ -797,8 +787,7 @@ def main():
         marker=dict(line=dict(color='#000000', width=1))
     )
     fig_bubble.update_layout(
-        backgroundcolor='rgba(26, 32, 48, 0.6)',
-        paper_bgcolor='rgba(26, 32, 48, 0)',
+        paper_bgcolor='rgba(26, 32, 48, 0.6)',
         plot_bgcolor='rgba(26, 32, 48, 0)',
         font=dict(color='#FFFFFF'),
         xaxis=dict(gridcolor='rgba(99, 102, 241, 0.2)'),
@@ -820,8 +809,7 @@ def main():
         color_continuous_scale='RdYlGn'
     )
     fig_crosstab.update_layout(
-        backgroundcolor='rgba(26, 32, 48, 0.6)',
-        paper_bgcolor='rgba(26, 32, 48, 0)',
+        paper_bgcolor='rgba(26, 32, 48, 0.6)',
         plot_bgcolor='rgba(26, 32, 48, 0)',
         font=dict(color='#FFFFFF')
     )
