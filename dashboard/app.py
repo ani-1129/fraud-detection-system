@@ -831,28 +831,32 @@ def main():
         hide_index=True
     )
     
-    # EXPORT DATA
-    st.markdown('<hr style="border: 1px solid rgba(99, 102, 241, 0.2); margin: 4rem 0;">', unsafe_allow_html=True)
-    st.markdown('<h2 class="section-header">💾 Export Intelligence Data</h2>', unsafe_allow_html=True)
-    
-    csv_data = filtered_df.to_csv(index=False)
-    st.download_button(
-        label="📥 Download Full Report (CSV)",
-        data=csv_data,
-        file_name=f"fraud_data_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
-        mime="text/csv"
-    )
-    
-    # Footer
-    st.markdown('<hr style="border: 1px solid rgba(99, 102, 241, 0.2); margin: 4rem 0;">', unsafe_allow_html=True)
-    st.markdown(f'''
-        <div class="footer">
-            <p>🛡️ Financial Fraud Detection AI | Powered by Streamlit + Plotly + AI</p>
-            <p>🚀 Real-time Intelligence Dashboard | Last Updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>
-            <p>© 2026 Fraud Detection AI System</p>
-        </div>
-    ''', unsafe_allow_html=True)
+   # EXPORT DATA
+st.markdown("<hr style='border: 1px solid rgba(99, 102, 241, 0.2); margin: 4rem 0;'>", unsafe_allow_html=True)
+st.markdown("<h2 class='section-header'>💾 Export Intelligence Data</h2>", unsafe_allow_html=True)
 
+csv_data = filtered_df.to_csv(index=False)
+st.download_button(
+    label="📥 Download Full Report (CSV)",
+    data=csv_data,
+    file_name=f"fraud_data_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
+    mime="text/csv"
+)
+
+# Footer
+st.markdown("<hr style='border: 1px solid rgba(99, 102, 241, 0.2); margin: 4rem 0;'>", unsafe_allow_html=True)
+st.markdown(
+    "<div class='footer'>"
+    "<p>🛡️ Financial Fraud Detection AI | Powered by Streamlit + Plotly + AI</p>"
+    "<p>🚀 Real-time Intelligence Dashboard | Last Updated: {time}</p>"
+    "<p>© 2026 Fraud Detection AI System</p>"
+    "</div>".format(time=datetime.now().strftime('%Y-%m-%d %H:%M:%S')),
+    unsafe_allow_html=True
+)
+
+
+if __name__ == "__main__":
+    main()
 
 if __name__ == "__main__":
     main()
